@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PumpGBA - Ultimate Retro Gaming DApp</title>
+    <meta name="description" content="Experience thousands of classic GBA games with Solana wallet integration. Play retro games online with advanced emulation technology." />
+    <meta name="keywords" content="GBA, Game Boy Advance, retro gaming, Solana, DApp, emulator, blockchain gaming" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pumpgba.minimaxi.space/" />
+    <meta property="og:title" content="PumpGBA - Ultimate Retro Gaming DApp" />
+    <meta property="og:description" content="Experience thousands of classic GBA games with Solana wallet integration. Play retro games online with advanced emulation technology." />
+    <meta property="og:image" content="/images/backgrounds/gaming_bg.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pumpgba.minimaxi.space/" />
+    <meta property="twitter:title" content="PumpGBA - Ultimate Retro Gaming DApp" />
+    <meta property="twitter:description" content="Experience thousands of classic GBA games with Solana wallet integration. Play retro games online with advanced emulation technology." />
+    <meta property="twitter:image" content="/images/backgrounds/gaming_bg.jpg" />
+    
+    <!-- Gaming Theme Colors -->
+    <meta name="theme-color" content="#00FF00" />
+    <meta name="msapplication-TileColor" content="#00FF00" />
+    
+    <!-- Preload Gaming Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Loading Screen */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #000000 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: 'Orbitron', monospace;
+      }
+      
+      .loading-logo {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 2rem;
+        text-shadow: 0 0 20px #00FF00;
+      }
+      
+      .loading-logo .pump {
+        color: #00FF00;
+      }
+      
+      .loading-logo .gba {
+        color: #32CD32;
+      }
+      
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid #228B22;
+        border-top: 4px solid #00FF00;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+      
+      .loading-text {
+        color: #32CD32;
+        font-family: 'Source Code Pro', monospace;
+        font-size: 1rem;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loading screen when app loads */
+      .loaded #loading-screen {
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-logo">
+        <span class="pump">Pump</span><span class="gba">GBA</span>
+      </div>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading retro gaming experience...</div>
+    </div>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      // Hide loading screen when app loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+          setTimeout(function() {
+            document.getElementById('loading-screen').style.display = 'none';
+          }, 500);
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
