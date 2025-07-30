@@ -263,10 +263,13 @@ const GamePlayer: React.FC = () => {
   :
 
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gaming-darker to-gaming-dark" style={{display:isPlaying?"":"none"}}>
-                  <EmulatorContainer
-                    romPath={encodeURI(game.rom)} 
-                    onBack={()=>{}}
-                  />
+
+                  <div style={{backgroundColor:"black" , width:"100%",height:"100%"}}>
+                    <EmulatorContainer
+                      romPath={encodeURI(game.rom)} 
+                      onBack={()=>{}}
+                    />
+                  </div>
                 </div>
 }
                 {/* Scanline Effect */}
